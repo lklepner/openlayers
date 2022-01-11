@@ -293,7 +293,10 @@ class MVT extends FeatureFormat {
 
       for (let i = 0, ii = pbfLayer.length; i < ii; ++i) {
         const rawFeature = readRawFeature(pbf, pbfLayer, i);
-        features.push(this.createFeature_(pbf, rawFeature, options));
+        const processedFeature = this.createFeature_(pbf, rawFeature, options);
+        if (processedFeature) {
+          features.push();
+        }
       }
     }
 
